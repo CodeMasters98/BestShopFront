@@ -1,14 +1,26 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-
+import { Product } from './_models/product';
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'app-bestshop-front';
+
+  title = 'bestshop';
+  public username:any = "";
+  public password:string = "";
+  public product:Product | null = null;
+  public products:Product[] = [];
+
+  //Logic
+  //One Way Binding
+  //Two way binding
+
+  AddProduct(product:Product){
+  }
+
+  Login() {
+  }
+
 }
