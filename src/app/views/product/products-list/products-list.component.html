@@ -1,1 +1,15 @@
-<p>products-list works!</p>
+<table>
+    <tr>
+      <th>Name</th>
+      <th>BrandName</th>
+      <th>Country</th>
+    </tr>
+    <tr *ngFor="let item of products">
+      <td>{{ item.Name | uppercase }}</td>
+      <td>{{ item.BrandName }}</td>
+      <td>{{ item.TotaPrice }}</td>
+    </tr>
+    <tr *ngIf="products.length == 0">
+        <td colspan="3">No record</td>
+    </tr>
+  </table>
