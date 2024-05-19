@@ -20,7 +20,6 @@ export class LoginComponent {
 
   }
 
-
   ngOnInit(){
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
