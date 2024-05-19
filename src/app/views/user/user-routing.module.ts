@@ -8,16 +8,16 @@ const routes: Routes = [
       path: 'login',
       component: LoginComponent,
       data: {
-        title: 'لیست بنر ها'
+        title: 'ورود'
       }
     },
     {
         path: 'register',
         component: RegisterComponent,
         data: {
-          title: 'لیست بنر ها'
+          title: 'ثبت نام'
         }
-      }
+    }
   ];
   
   @NgModule({

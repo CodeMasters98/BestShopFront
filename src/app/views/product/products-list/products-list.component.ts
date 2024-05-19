@@ -21,13 +21,14 @@ export class ProductsListComponent {
 
       // }
     },err =>{});
-    // for (let index = 0; index < 10; index++) {
-    //   const product = new Product();
-    //   product.Name = `Name ${index + 1}`
-    //   product.BrandName = `BrandName ${index + 1}`
-    //   product.TotaPrice = (index + 1) * 5000
-    //   this.products.push(product);
-    // }
+    for (let index = 0; index < 3; index++) {
+      const product = new Product();
+      product.Name = `Name ${index + 1}`
+      product.BrandName = `BrandName ${index + 1}`
+      product.Description = `Description ${index + 1} asuydvgyausdbgyausdguasdgbyhu`
+      product.TotaPrice = (index + 1) * 5000
+      this.products.push(product);
+    }
   }
 
 }
