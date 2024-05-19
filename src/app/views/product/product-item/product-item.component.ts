@@ -8,6 +8,6 @@ import { Product } from '../../../_models/product';
 })
 export class ProductItemComponent {
   
-  @Input() product: Product;
+  @Input() public product: Product;
 
 }

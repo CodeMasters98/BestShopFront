@@ -11,7 +11,7 @@ export class ProductService {
 
   GetProducts() {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    return this.http.get<any>(`${environment.apiUrl}/Login`, httpOptions);
+    return this.http.get<any>(`${environment.apiUrl}api/v1/Product`, httpOptions);
   }
 
 }

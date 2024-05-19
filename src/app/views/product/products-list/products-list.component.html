@@ -1,3 +1,5 @@
-<div style="display: flex;">
-  <app-product-item *ngFor="let item of products" [product]="item"></app-product-item>
+<div style="display: flex;" *ngIf="products && products?.length > 0">
+  <div *ngFor="let product of products">
+    <app-product-item [product]="product"></app-product-item>
+  </div>
 </div>
