@@ -1,17 +1,10 @@
-<mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{ product.Name }}</mat-card-title>
-      <mat-card-subtitle>{{ product?.BrandName }}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+<mat-card class="card">
+    <img mat-card-image [src]="pic" (error)="setDefaultPic()" alt="Photo of a Shiba Inu">
     <mat-card-content>
-      <p>
-        {{ product?.Description }}
-      </p>
+      <mat-card-title>{{ product.Name }}</mat-card-title>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
+      <button mat-button class="btn" [routerLink]="['/Product',product.Id]">Detail</button>
+      <button mat-button class="btn btn-delete" (click)="deleteProduct(product.Id)">Delete</button>
     </mat-card-actions>
 </mat-card>

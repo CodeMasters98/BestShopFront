@@ -5,19 +5,24 @@ import { ProductRoutingModule } from './product-routing.module';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { ProductItemComponent } from './product-item/product-item.component';
+import { ProductsTableComponent } from './products-table/products-table.component';
 
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     ProductsListComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    ProductsTableComponent
   ],
   imports: [
     CommonModule,
     ProductRoutingModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   exports: [
     //ProductItemComponent

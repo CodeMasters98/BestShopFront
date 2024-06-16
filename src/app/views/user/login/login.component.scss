@@ -5,9 +5,11 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
+.login-body{
+    min-height: 1000px;
     background-color: #080710;
 }
+
 .background{
     width: 430px;
     height: 520px;
@@ -16,12 +18,14 @@ body{
     left: 50%;
     top: 50%;
 }
+
 .background .shape{
     height: 200px;
     width: 200px;
     position: absolute;
     border-radius: 50%;
 }
+
 .shape:first-child{
     background: linear-gradient(
         #1845ad,

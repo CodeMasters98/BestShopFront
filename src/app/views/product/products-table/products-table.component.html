@@ -1,0 +1,5 @@
+<div style="display: flex;" *ngIf="products && products?.length > 0">
+  <div *ngFor="let product of products" [routerLink]="['/Product',product.Id]">
+    <app-product-item [product]="product"></app-product-item>
+  </div>
+</div>

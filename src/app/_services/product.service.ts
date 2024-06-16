@@ -14,4 +14,9 @@ export class ProductService {
     return this.http.get<any>(`${environment.apiUrl}api/v1/Product`, httpOptions);
   }
 
+  DeleteProduct(id:number) {
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return this.http.delete<any>(`${environment.apiUrl}api/v1/Product?id=${id}`, httpOptions);
+  }
+
 }

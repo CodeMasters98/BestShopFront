@@ -23,7 +23,11 @@ export const routes: Routes = [
       //canActivate: [AuthGuard],
       children: [
         {
-          path: 'User',
+          path: '',
+          loadChildren: () => import('./views/landing/landing.module').then(m => m.LandingModule)
+        },
+        {
+          path: 'User',// /User/Login
           loadChildren: () => import('./views/user/user.module').then(m => m.UserModule)
         },
         {

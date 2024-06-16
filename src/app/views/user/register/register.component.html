@@ -1,1 +1,19 @@
-<p>register works!</p>
+<div class="login-body">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="Login()">
+        <h3>Register {{title}}</h3>
+        <label for="email">Email</label>
+        <input type="text"  value="" formControlName="email" placeholder="email" id="email">
+
+        <label for="password">Password</label>
+        <input type="password" value="" formControlName="password" placeholder="Password" id="password">
+        <button class="login-btn">Register</button>
+
+        <div *ngIf="errorMessage && errorMessage?.length > 0" class="error-message">
+            {{ errorMessage }}
+        </div>
+    </form>
+</div>

@@ -1,6 +1,21 @@
-.example-card {
+.mat-mdc-card{
+  border: 1px solid;
+}
+
+.btn{
+  background-color: #212529;
+  margin: 3px;
+
+  .btn-delete{
+    background-color: red !important;
+  }
+}
+
+.card {
     max-width: 400px;
     margin: 5px;
+    cursor: pointer;
+    
   }
   
   .example-header-image {
