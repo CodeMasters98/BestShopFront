@@ -1,0 +1,24 @@
+<div class="form-container mt-2">
+  <form [formGroup]="ProductForm">
+      <h3>Add Product</h3>
+      <div class="mt-3">
+        <input class="form-control" type="text" formControlName="name" placeholder="name" id="name">
+      </div>
+
+      <div class="mt-3">
+        <input class="form-control" type="tel" formControlName="price" placeholder="price" id="price">
+      </div>
+
+     <div class="mt-3">
+      <input class="form-control" type="text" formControlName="brandName" placeholder="brandName" id="brandName">
+     </div>
+
+      <div  class="mt-3">
+        <button type="submit" class="btn btn-primary w-100" (click)="Add()">Add</button>
+      </div>
+  </form>
+
+  <div *ngIf="errorMessage && errorMessage?.length > 0" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>

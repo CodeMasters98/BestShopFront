@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Product } from '../../../_models/product';
 import swal from 'sweetalert2'
 import { ProductService } from '../../../_services/product.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-item',
@@ -10,7 +11,9 @@ import { ProductService } from '../../../_services/product.service';
 })
 export class ProductItemComponent {
   
-  constructor(private productService:ProductService){
+  constructor(
+    private toastr: ToastrService,
+    private productService:ProductService){
 
   }
 
@@ -34,13 +37,9 @@ export class ProductItemComponent {
       if (result.isConfirmed) {
         //Call Api for delete a product
         this.productService.DeleteProduct(productId).subscribe(result => {
-          swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
-            icon: "success"
-          });
+          this.toastr.success("Product deleted successfully!");
         },err =>{
-          
+          this.toastr.error(err?.message);
         });
         
       }

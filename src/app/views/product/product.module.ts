@@ -9,12 +9,15 @@ import { ProductsTableComponent } from './products-table/products-table.componen
 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
+import { AddProductComponent } from './add-product/add-product.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     ProductsListComponent,
     ProductItemComponent,
-    ProductsTableComponent
+    ProductsTableComponent,
+    AddProductComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +25,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatButtonModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   exports: [
     //ProductItemComponent

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Product } from '../../../_models/product';
 import { ProductService } from '../../../_services/product.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products-list',
@@ -16,6 +17,7 @@ export class ProductsListComponent {
   //DOM
 
   constructor(
+    private router: Router,
     private productService:ProductService,
     private toastr: ToastrService){}
 
@@ -35,6 +37,10 @@ export class ProductsListComponent {
       this.toastr.error('Error', err.message);
       this.loading = false;
     });
+  }
+
+  public RouteToAddProduct(){
+    this.router.navigate(['/Product/Add']);
   }
 
 }
