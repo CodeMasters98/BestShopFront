@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../../_services/authentication.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent {
 
   constructor(private formBuilder: FormBuilder,
     private toastr: ToastrService,
+    private router: Router,
     private authenticationService: AuthenticationService){
 
   }
@@ -41,7 +43,10 @@ export class LoginComponent {
       if(res && res.data){
         localStorage.setItem('currentUser', JSON.stringify(res.data));
       }
+      debugger;
       this.toastr.success("Login successfully");
+      this.router.navigate(['/']);
+
     },err => {
       this.toastr.error(err);
     });
