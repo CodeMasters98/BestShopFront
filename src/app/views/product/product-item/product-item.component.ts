@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../../_models/product';
 import swal from 'sweetalert2'
 import { ProductService } from '../../../_services/product.service';
@@ -16,6 +16,10 @@ export class ProductItemComponent {
     private productService:ProductService){
 
   }
+
+
+
+  @Output() deleteRequest = new EventEmitter<boolean>();
 
   @Input() public product: Product;
   public pic:string = "https://material.angular.io/assets/img/examples/shiba2.jpg";
@@ -37,7 +41,10 @@ export class ProductItemComponent {
       if (result.isConfirmed) {
         //Call Api for delete a product
         this.productService.DeleteProduct(productId).subscribe(result => {
+          this.deleteRequest.emit(true);
           this.toastr.success("Product deleted successfully!");
+          //window.location.reload(); => bad practi
+          
         },err =>{
           this.toastr.error(err?.message);
         });

@@ -1,20 +1,24 @@
-<div *ngIf="loading" class="mt-5">
-  <mat-spinner></mat-spinner>
-</div>
-
-<button class="custom-btn" (click)="RouteToAddProduct()">
-  Add Product
-</button>
-
-<div>
-  <div class="row" *ngIf="products && products?.length > 0">
-    <div *ngFor="let product of products" class="col-lg-4">
-      <app-product-item [product]="product"></app-product-item>
+<div class="container">
+  <div *ngIf="loading" class="mt-5">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="smallScreen">
+    this is small screen
+  </div>
+  <button class="custom-btn" (click)="RouteToAddProduct()">
+    Add Product
+  </button>
+  
+  <div>
+    <div class="row" *ngIf="products && products?.length > 0">
+      <div *ngFor="let product of products" class="col-lg-4">
+        <app-product-item [product]="product" (deleteRequest)="deleteRequest($event)"  ></app-product-item>
+      </div>
     </div>
   </div>
-</div>
-
-
-<div *ngIf="!loading && products?.length == 0" class="alert alert-dark mt-5" role="alert">
-  No product to view!
+  
+  
+  <div *ngIf="!loading && products?.length == 0" class="alert alert-dark mt-5" role="alert">
+    No product to view!
+  </div>
 </div>
