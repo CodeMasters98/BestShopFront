@@ -23,10 +23,9 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
-  
   Login(data:any){
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    return this.http.post<any>(`${environment.apiUrl}/Login`, data, httpOptions);
+    return this.http.post<any>(`${environment.apiUrl}UserService/api/v1/Authentication/Login`, data, httpOptions);
   }
 
 }

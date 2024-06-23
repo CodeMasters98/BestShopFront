@@ -2,12 +2,14 @@ import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from "@angular/cor
 import { AppComponent } from "./app.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app.routing";
 import { ToastrModule } from "ngx-toastr";
 import { CommonModule } from "@angular/common";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from "./views/shared/header/header.component";
+import { JwtInterceptor } from "./_helper/jwt.interceptor";
+import { ErrorInterceptor } from "./_helper/error.interceptor";
 
 @NgModule({
     imports: [
@@ -28,7 +30,18 @@ import { HeaderComponent } from "./views/shared/header/header.component";
       CUSTOM_ELEMENTS_SCHEMA,
       NO_ERRORS_SCHEMA
     ],
-    providers:[],
+    providers:[
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: JwtInterceptor,
+        multi: true
+      },
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: ErrorInterceptor,
+        multi: true
+      }
+    ],
     bootstrap: [AppComponent]
   })
   export class AppModule { }

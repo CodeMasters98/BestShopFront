@@ -25,7 +25,6 @@ import { ToastrService } from 'ngx-toastr';
     ): Observable<HttpEvent<any>> {
       return next.handle(request).pipe(
         catchError((err) => {
-          debugger;
           this.toastr.error('Error', err.error.message);
           if (err.status === 401) {
             //this.userService.logout();
